@@ -21,19 +21,24 @@ export class LoginComponent {
   // }
 
   login() {
-    this.auth.login(this.email, this.password).subscribe({
-      next: (res) => {
-        // ✅ Store token after login success
-        this.auth.setToken(res.token);
+    // this.auth.login(this.email, this.password).subscribe({
+    //   next: (res) => {
+    //     this.auth.setToken(res.token);
+    //     this.router.navigate(['/dashboard']);
+    //   },
+    //   error: (err) => {
+    //     console.error('Login failed', err);
+    //   }
+    // }); 
 
-        // ✅ Navigate to dashboard or any route
+    this.auth .login(this.email, this.password).subscribe({
+      next: (res) => {
+        this.auth.setToken(res.token);
         this.router.navigate(['/dashboard']);
-      },
-      error: (err) => {
-        console.error('Login failed', err);
-        // Optional: Show error to user
       }
     });
+
+    
   }
 
 }
