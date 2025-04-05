@@ -10,7 +10,7 @@ connectDB();
 
 const app = express();
 app.use(cors({
-  origin: 'http://localhost:4200', // allow only Angular frontend
+  origin: 'http://localhost:4300', // allow only Angular frontend
   credentials: true, // if you're using cookies or sessions
 }));
 
