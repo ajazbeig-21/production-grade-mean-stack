@@ -14,7 +14,7 @@ export class DashboardComponent implements OnInit {
 
   // constructor(private http: HttpClient, protected auth: AuthService) {}
 
-  constructor(private userService:UserService) {}
+  constructor(private userService:UserService,  protected auth: AuthService) {}
 
   ngOnInit() {
     this.userService.getUsers().subscribe(
@@ -27,5 +27,9 @@ export class DashboardComponent implements OnInit {
       }
     );
     
+  }
+
+  logout(){
+    this.auth.logout();
   }
 }
